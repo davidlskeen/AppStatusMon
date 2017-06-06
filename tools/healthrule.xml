@@ -1,0 +1,84 @@
+<health-rules controller-version="004-002-009-002">
+    <health-rule>
+        <name>{app_name} status</name>
+        <type>OTHER</type>
+        <description/>
+        <enabled>true</enabled>
+        <is-default>false</is-default>
+        <always-enabled>true</always-enabled>
+        <duration-min>5</duration-min>
+        <wait-time-min>5</wait-time-min>
+        <affected-entities-match-criteria>
+            <other-affected-entities-match-criteria>
+                <entity>
+                    <entity-type>APPLICATION_COMPONENT_NODE</entity-type>
+                    <application-component-node>{monitornode}</application-component-node>
+                </entity>
+            </other-affected-entities-match-criteria>
+        </affected-entities-match-criteria>
+        <critical-execution-criteria>
+            <entity-aggregation-scope>
+                <type>ANY</type>
+                <value>0</value>
+            </entity-aggregation-scope>
+            <policy-condition>
+                <type>leaf</type>
+                <display-name>condition 1</display-name>
+                <condition-value-type>ABSOLUTE</condition-value-type>
+                <condition-value>1.0</condition-value>
+                <operator>GREATER_THAN</operator>
+                <condition-expression/>
+                <use-active-baseline>false</use-active-baseline>
+                <trigger-on-no-data>false</trigger-on-no-data>
+                <metric-expression>
+                    <type>leaf</type>
+                    <function-type>MAX</function-type>
+                    <value>0</value>
+                    <is-literal-expression>false</is-literal-expression>
+                    <display-name>null</display-name>
+                    <metric-definition>
+                        <type>ABSOLUTE_METRIC_SCOPE</type>
+                        <logical-metric-name>Application Infrastructure Performance|{monitortier}|Custom Metrics|AppStatus|{app_name}|Status</logical-metric-name>
+                        <metric-name>Custom Metrics|AppStatus|{app_name}|Status</metric-name>
+                        <entity>
+                            <entity-type>APPLICATION_COMPONENT</entity-type>
+                            <application-component>{monitortier}</application-component>
+                        </entity>
+                    </metric-definition>
+                </metric-expression>
+            </policy-condition>
+        </critical-execution-criteria>
+        <warning-execution-criteria>
+            <entity-aggregation-scope>
+                <type>ANY</type>
+                <value>0</value>
+            </entity-aggregation-scope>
+            <policy-condition>
+                <type>leaf</type>
+                <display-name>condition 1</display-name>
+                <condition-value-type>ABSOLUTE</condition-value-type>
+                <condition-value>0.0</condition-value>
+                <operator>GREATER_THAN</operator>
+                <condition-expression/>
+                <use-active-baseline>false</use-active-baseline>
+                <trigger-on-no-data>false</trigger-on-no-data>
+                <metric-expression>
+                    <type>leaf</type>
+                    <function-type>MAX</function-type>
+                    <value>0</value>
+                    <is-literal-expression>false</is-literal-expression>
+                    <display-name>null</display-name>
+                    <metric-definition>
+                        <type>ABSOLUTE_METRIC_SCOPE</type>
+                        <logical-metric-name>Application Infrastructure Performance|{monitortier}|Custom Metrics|AppStatus|{app_name}|Status</logical-metric-name>
+                        <metric-name>Custom Metrics|AppStatus|{app_name}|Status</metric-name>
+                        <entity>
+                            <entity-type>APPLICATION_COMPONENT</entity-type>
+                            <application-component>{monitortier}</application-component>
+                        </entity>
+                    </metric-definition>
+                </metric-expression>
+            </policy-condition>
+        </warning-execution-criteria>
+    </health-rule>
+</health-rules>

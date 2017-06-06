@@ -1,0 +1,28 @@
+### ANY CHANGES TO THIS FILE DOES NOT REQUIRE A RESTART ###
+
+#This will create this metric in all the tiers, under this path
+metricPrefix: Custom Metrics|AppStatus
+
+#This will create it in specific Tier. Replace <TIER_NAME>
+#metricPrefix: Server|Component:<TIER_NAME>|Custom Metrics|AppStatus
+
+controllerinfo:
+  - controller: yourcontroller.com
+    port: 8090
+    user: user
+    password: password
+    account: customer1
+    useSSL: false
+
+# number of concurrent tasks
+numberOfThreads: 5
+encryptionKey: welcome
+
+#proxy:
+#  uri: http://localhost:9090
+#  username: proxyyuser
+#  password: proxypassword
+
+#taskSchedule:
+#  numberOfThreads: 1
+#  taskDelaySeconds: 300

@@ -1,0 +1,23 @@
+<monitor>
+    <name>AppStatusMonitor</name>
+    <type>managed</type>
+    <description>AppStatus writes a status metric for each application</description>
+    <monitor-configuration>
+    </monitor-configuration>
+    <monitor-run-task>
+        <execution-style>periodic</execution-style>
+        <execution-frequency-in-seconds>120</execution-frequency-in-seconds>
+        <name>AppStatusMonitor Run Task</name>
+        <display-name>AppStatusMonitor Task</display-name>
+        <description>AppStatusMonitor Task</description>
+        <type>java</type>
+        <execution-timeout-in-secs>120</execution-timeout-in-secs>
+        <task-arguments>
+            <argument name="config-file" is-required="true" default-value="monitors/AppStatusMonitor/config.yml" />
+        </task-arguments>
+        <java-task>
+            <classpath>appstatus-extensions.jar</classpath>
+            <impl-class>com.appdynamics.monitors.AppStatusMonitor</impl-class>
+        </java-task>
+    </monitor-run-task>
+</monitor>

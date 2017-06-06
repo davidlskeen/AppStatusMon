@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <property name="target.dir" value="/Users/david.skeen/extensions/appstatus-extension/target/AppStatusMonitor"/>
+  <mkdir dir="${target.dir}"/>
+  <copy todir="${target.dir}">
+    <fileset includes="monitor.xml,config.yml" dir="src/main/resources/conf"/>
+  </copy>
+  <copy todir="${target.dir}">
+    <fileset includes="appstatus-extensions.jar" dir="/Users/david.skeen/extensions/appstatus-extension/target"/>
+  </copy>
+  <zip destfile="${target.dir}-1.0.0.zip">
+    <zipfileset prefix="AppStatusMonitor" filemode="755" dir="${target.dir}"/>
+  </zip>
+  <delete dir="${target.dir}"/>
+</target>
+</project>
